@@ -9,7 +9,7 @@ namespace Kata.Greed.Simple
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
             do
             {
                 var roll = MakeARandomRoll();
