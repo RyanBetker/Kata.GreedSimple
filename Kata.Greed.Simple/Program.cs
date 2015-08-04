@@ -60,7 +60,7 @@ namespace Kata.Greed.Simple
 
             //Six of any number: 3000
             score += ScoreSixOfAny(dies);
-
+            return score;
             //2 triplets. 2500
             score += ScoreTwoTriplets(dies);
 
@@ -72,9 +72,7 @@ namespace Kata.Greed.Simple
             if (score > 0)
                 return score;
 	#endregion
-
-            return 25;
-
+            
             //remember to remove used dice
             //Needed though? Yes.. for something like {1,1,1,1,5,5}, 4 ones would be 1000, and they shouldn't be counted again when doing ones.
             
@@ -86,8 +84,20 @@ namespace Kata.Greed.Simple
             //Three ones: 1000, or Three of any: # * 100
             score += ScoreThreeOfAny(dies);
             
-                                  
-            
+            //TODO: also score singles
+            score += ScoreSingleOne(dies);
+            score += ScoreSingleFives(dies);
+
+            return score;
+        }
+
+        private static int ScoreSingleFives(int[] dies)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static int ScoreSingleOne(int[] dies)
+        {
             throw new NotImplementedException();
         }
 
@@ -98,7 +108,11 @@ namespace Kata.Greed.Simple
 
         private static int ScoreSixOfAny(int[] dies)
         {
-            throw new NotImplementedException();
+            if (dies.Count(d => d == dies[0]) == 6)
+            {
+                return 3000;
+            }
+            return 0;
         }
 
         private static int ScoreFullStraight(int[] dies)
