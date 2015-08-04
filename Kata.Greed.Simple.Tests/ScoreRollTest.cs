@@ -9,7 +9,7 @@ namespace Kata.Greed.Simple.Tests
     public class ScoreRollTest
     {
         [TestMethod]
-        public void TestScoreFullStraightIs1500()
+        public void ScoreFullStraightIs1500()
         {
             var straightRoll = new int[] { 1, 3, 2, 4, 5, 6 };
             var score = Kata.Greed.Simple.Program.ScoreRoll(straightRoll);
@@ -18,7 +18,7 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestScoreSixOfAny3000()
+        public void ScoreSixOfAny3000()
         {
             for (int i = 1; i < 7; i++)
             {
@@ -31,7 +31,7 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestScoreTwoTripletsIs2500()
+        public void ScoreTwoTripletsIs2500()
         {
             var rollWithTwoTriplets = new int[] { 2, 3, 3, 2, 2, 3 };
 
@@ -41,7 +41,7 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestScoreFourOfAnyWithAPairIs1500()
+        public void ScoreFourOfAnyWithAPairIs1500()
         {
             for (int i = 1; i < 7; i++)
             {
@@ -60,7 +60,7 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestGetDieNumberNotIn()
+        public void GetDieNumberNotIn()
         {
             for (int i = 1; i < 7; i++)
             {
@@ -87,7 +87,7 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestScoreThreePairs()
+        public void ScoreThreePairs()
         {
             var rollWithThreePairs = new int[] { 1, 3, 4, 3, 4, 1 };
 
@@ -95,5 +95,6 @@ namespace Kata.Greed.Simple.Tests
 
             Assert.AreEqual(1500, score);
         }
+
     }
 }
