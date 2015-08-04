@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Greed.Simple", "Kata.Greed.Simple\Kata.Greed.Simple.csproj", "{18B882EF-D735-4B08-A8E3-AE902B77A46D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Greed.Simple.Tests", "Kata.Greed.Simple.Tests\Kata.Greed.Simple.Tests.csproj", "{ACE9916D-54B8-4A85-B7B6-A193053CA797}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{18B882EF-D735-4B08-A8E3-AE902B77A46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B882EF-D735-4B08-A8E3-AE902B77A46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18B882EF-D735-4B08-A8E3-AE902B77A46D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE9916D-54B8-4A85-B7B6-A193053CA797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE9916D-54B8-4A85-B7B6-A193053CA797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE9916D-54B8-4A85-B7B6-A193053CA797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE9916D-54B8-4A85-B7B6-A193053CA797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
