@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Kata.Greed.Simple.Tests
 {
@@ -96,5 +97,23 @@ namespace Kata.Greed.Simple.Tests
             Assert.AreEqual(1500, score);
         }
 
+        [TestMethod]
+        public void ScoreFiveOfAnyIs2000()
+        {
+            var rollWithFiveOfAny = new int[] { 1, 1, 1, 3, 1, 1 };
+            var diceRolled = rollWithFiveOfAny;
+            new Roll(rollWithFiveOfAny);
+            var score = Program.ScoreRoll(rollWithFiveOfAny);
+
+            Assert.AreEqual(2000, score);
+        }
+        [TestMethod]
+        public void ScoreFourOfAnyIs1000()
+        {
+            var rollWithFourOfAny = new int[] { 1, 1, 3, 3, 1, 1 };
+            var score = Program.ScoreRoll(rollWithFourOfAny);
+
+            Assert.AreEqual(1000, score);
+        }
     }
 }
