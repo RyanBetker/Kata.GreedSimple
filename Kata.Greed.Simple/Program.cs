@@ -25,10 +25,9 @@ namespace Kata.Greed.Simple
                     Console.Write(roll[i] + " ");
                 }
                 Console.WriteLine("You rolled a score of: {0}", score);
+
                 Console.WriteLine("Wanna go again? Y/N");
-                                
-            } while ((char)Console.Read() == 'y');
-            //TODO: Loop only works for 2 total iterations
+            } while (Console.ReadKey().KeyChar == 'y');
         }
 
         private static int[] MakeARandomRoll()
