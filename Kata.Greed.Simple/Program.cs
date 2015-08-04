@@ -137,7 +137,12 @@ namespace Kata.Greed.Simple
 
         private static int ScoreThreePairs(int[] dies)
         {
-            throw new NotImplementedException();
+            //Still working on Four+Pair logic first
+            //if(dies.Distinct().Count() == 3)
+            //{
+            //    return 1500;
+            //}
+            return 0;
         }
 
         private static int ScoreFourOfAnyWithAPair(int[] dies)
@@ -147,7 +152,11 @@ namespace Kata.Greed.Simple
 
         private static int ScoreTwoTriplets(int[] dies)
         {
-            if (dies.Distinct().Count() == 2)
+            var rollGrouped = dies.GroupBy(d => d);
+            
+            //Expanding to not score FourDice+Pair.
+            if (dies.Distinct().Count() == 2
+                && rollGrouped.All(g => g.Count() == 3))
             {
                 return 2500; 
             }
