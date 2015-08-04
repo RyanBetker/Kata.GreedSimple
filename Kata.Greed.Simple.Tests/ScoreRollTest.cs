@@ -87,7 +87,6 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        [Ignore]//not ready for this yet - on 4kind+pair
         public void TestScoreThreePairs()
         {
             var rollWithThreePairs = new int[] { 1, 3, 4, 3, 4, 1 };

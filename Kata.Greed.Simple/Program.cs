@@ -65,7 +65,7 @@ namespace Kata.Greed.Simple
 
             //Four of any + a pair. 1500
             score += ScoreFourOfAnyWithAPair(dies);
-            return score;
+            
             //Three pairs: 1500
             score += ScoreThreePairs(dies);
 
@@ -137,11 +137,10 @@ namespace Kata.Greed.Simple
 
         private static int ScoreThreePairs(int[] dies)
         {
-            //Still working on Four+Pair logic first
-            //if(dies.Distinct().Count() == 3)
-            //{
-            //    return 1500;
-            //}
+            if(dies.Distinct().Count() == 3)
+            {
+                return 1500;
+            }
             return 0;
         }
 
