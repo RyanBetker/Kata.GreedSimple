@@ -60,9 +60,9 @@ namespace Kata.Greed.Simple
 
             //Six of any number: 3000
             score += ScoreSixOfAny(dies);
-            return score;
             //2 triplets. 2500
             score += ScoreTwoTriplets(dies);
+            return score;
 
             //Four of any + a pair. 1500
             score += ScoreFourOfAnyWithAPair(dies);
@@ -147,7 +147,11 @@ namespace Kata.Greed.Simple
 
         private static int ScoreTwoTriplets(int[] dies)
         {
-            throw new NotImplementedException();
+            if (dies.Distinct().Count() == 2)
+            {
+                return 2500; 
+            }
+            return 0;
         }
     }
 }
