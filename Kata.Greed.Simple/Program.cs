@@ -78,9 +78,9 @@ namespace Kata.Greed.Simple
             
             //Five of any: 2000
             score += ScoreFiveOfAny(dies);//using += in case rule lines are added befire this.
-
             //Four of any: 1000
             score += ScoreFourOfAny(dies);
+            return score;
             //Three ones: 1000, or Three of any: # * 100
             score += ScoreThreeOfAny(dies);
             
@@ -103,7 +103,21 @@ namespace Kata.Greed.Simple
 
         private static int ScoreFiveOfAny(int[] dies)
         {
-            throw new NotImplementedException();
+            Dictionary<int, int> groupedDice;
+            groupedDice = GroupDiceByDie(dies);
+            if (groupedDice.Any(g => g.Value == 5))
+            {
+                //TASK: Remove used dice. Requires an up-step from array to dict
+                return 2000;
+            }
+            return 0;
+        }
+
+        private static Dictionary<int, int> GroupDiceByDie(int[] dies)
+        {
+            Dictionary<int, int> groupedDice;
+            groupedDice = dies.GroupBy(d => d).ToDictionary(kvp => kvp.Key, kvp => kvp.Count());
+            return groupedDice;
         }
 
         private static int ScoreSixOfAny(int[] dies)
@@ -132,7 +146,7 @@ namespace Kata.Greed.Simple
 
         private static int ScoreFourOfAny(int[] dies)
         {
-            throw new NotImplementedException();
+            return 1000;
         }
 
         private static int ScoreThreePairs(int[] dies)
