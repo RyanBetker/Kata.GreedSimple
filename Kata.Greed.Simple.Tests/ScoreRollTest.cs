@@ -109,7 +109,7 @@ namespace Kata.Greed.Simple.Tests
         [TestMethod]
         public void ScoreFourOfAnyIs1000()
         {
-            var rollWithFourOfAny = new int[] { 1, 1, 3, 3, 1, 1 };
+            var rollWithFourOfAny = new int[] { 1, 1, 2, 3, 1, 1 };
             var score = Program.ScoreRoll(rollWithFourOfAny);
 
             Assert.AreEqual(1000, score);
