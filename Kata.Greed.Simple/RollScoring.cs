@@ -71,10 +71,10 @@ namespace Kata.Greed.Simple
             score += ScoreFiveOfAny();//using += in case rule lines are added befire this.
             //Four of any: 1000
             score += ScoreFourOfAny();
-            return score;
             //Three ones: 1000, or Three of any: # * 100
             score += ScoreThreeOfAny();
             
+            return score;
             //TODO: also score singles
             score += ScoreSingleOne();
             score += ScoreSingleFives();
@@ -124,7 +124,15 @@ namespace Kata.Greed.Simple
 
         private int ScoreThreeOfAny()
         {
-            throw new NotImplementedException();
+            var groupOfThreeDice = DiceGroupsToScore.FirstOrDefault(d => d.Value == 3);
+            if (groupOfThreeDice.Key == 1)
+            {
+                return 1000; 
+            }
+            else
+            {
+                return groupOfThreeDice.Key * 100;
+            }
         }
 
         private int ScoreFourOfAny()

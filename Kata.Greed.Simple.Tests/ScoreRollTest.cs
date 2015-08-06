@@ -114,5 +114,30 @@ namespace Kata.Greed.Simple.Tests
 
             Assert.AreEqual(1000, score);
         }
+
+        [TestMethod]
+        public void ScoreThreeOfOnesIs1000()
+        {            
+            var rollWithFourOfAny = new int[] { 1, 1, 2, 1, 4, 5};
+            var score = Program.ScoreRoll(rollWithFourOfAny);
+
+            Assert.AreEqual(1000, score);
+        }
+        [TestMethod]
+        public void ScoreThreeOTwoIs200()
+        {
+            var rollWithThreeOfAny = new int[] { 2, 2, 3, 4, 2, 6};
+            var score = Program.ScoreRoll(rollWithThreeOfAny);
+                
+            Assert.AreEqual(200, score);
+        }
+        [TestMethod]
+        public void ScoreThreeOSixIs600()
+        {
+            var rollWithThreeOfAny = new int[] { 6, 6, 3, 4, 2, 6 };
+            var score = Program.ScoreRoll(rollWithThreeOfAny);
+
+            Assert.AreEqual(600, score);
+        }
     }
 }
