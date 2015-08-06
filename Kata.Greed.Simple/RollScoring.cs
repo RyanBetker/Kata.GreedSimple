@@ -74,9 +74,8 @@ namespace Kata.Greed.Simple
             //Three ones: 1000, or Three of any: # * 100
             score += ScoreThreeOfAny();
             
-            //TODO: also score singles
-            score += ScoreSingleOne();
-            return score;
+            //also score up the singles
+            score += ScoreSingleOne();            
             score += ScoreSingleFives();
 
             return score;
@@ -84,7 +83,7 @@ namespace Kata.Greed.Simple
 
         private int ScoreSingleFives()
         {
-            throw new NotImplementedException();
+            return DiceGroupsToScore.FirstOrDefault(g => g.Key == 5).Value * 50;
         }
 
         private int ScoreSingleOne()

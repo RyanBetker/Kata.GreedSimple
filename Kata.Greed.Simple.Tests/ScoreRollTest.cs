@@ -141,7 +141,7 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestOneIs100()
+        public void ScoreOneIs100()
         {
             var rollWithOne = new int[] { 1, 2, 4, 4, 6, 3 };
             var score = Program.ScoreRoll(rollWithOne);
@@ -149,7 +149,7 @@ namespace Kata.Greed.Simple.Tests
             Assert.AreEqual(100, score);
         }
         [TestMethod]
-        public void TestTwoOnesIs200()
+        public void ScoreTwoOnesIs200()
         {
             var rollWithOnes = new int[] { 1, 1, 4, 4, 6, 3 };
             var score = Program.ScoreRoll(rollWithOnes);
@@ -158,12 +158,30 @@ namespace Kata.Greed.Simple.Tests
         }
 
         [TestMethod]
-        public void TestThreeTwosAndTwiOnesIs400()
+        public void ScoreThreeTwosAndTwiOnesIs400()
         {
             var rollWithOnes = new int[] { 1, 1, 2, 2, 2, 6 };
             var score = Program.ScoreRoll(rollWithOnes);
 
             Assert.AreEqual(400, score);
+        }
+
+        [TestMethod]
+        public void ScoreOneFiveIs50()
+        {
+            var roll = new int[] { 5, 3, 4, 2, 2, 6 };
+            var score = Program.ScoreRoll(roll);
+
+            Assert.AreEqual(50, score);
+        }
+
+        [TestMethod]
+        public void ScoreTwoFivesIs100()
+        {
+            var roll = new int[] { 5, 5, 4, 2, 2, 6 };
+            var score = Program.ScoreRoll(roll);
+
+            Assert.AreEqual(100, score);            
         }
     }
 }
