@@ -9,7 +9,7 @@ namespace Kata.Greed.Simple
     /* Ryan Betker
        08/06/15
      
-     * Kata attempt without classes and only 5 dice.
+     * Kata Greed attempt without classes and only 5 dice.
      * Much simpler logic :)
      */
     class Program

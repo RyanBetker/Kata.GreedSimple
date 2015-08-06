@@ -32,7 +32,7 @@ namespace Kata.Greed.Simple.Tests
         [TestMethod]
         public void ScoreThreeOfOnesIs1000()
         {            
-            var rollWithFourOfAny = new int[] { 1, 1, 2, 1, 4, 6};
+            var rollWithFourOfAny = new int[] { 1, 1, 2, 1, 4};
             var score = Program.ScoreRoll(rollWithFourOfAny);
 
             Assert.AreEqual(1000, score);
