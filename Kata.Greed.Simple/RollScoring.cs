@@ -41,7 +41,7 @@ namespace Kata.Greed.Simple
         
         internal int Score()
         {
-                    //TODO: All scoring, one by one.
+            //All scoring, one by one.
             int score = 0;
 #region Scoring for 6 dice
 
@@ -126,6 +126,15 @@ namespace Kata.Greed.Simple
         private int ScoreThreeOfAny()
         {
             var groupOfThreeDice = DiceGroupsToScore.FirstOrDefault(d => d.Value == 3);
+
+            if (groupOfThreeDice.Key == 0)//3 of kind wasn't found
+            {
+                return 0;
+            }
+
+            //remove the dice we're scoring
+            DiceGroupsScored[groupOfThreeDice.Key] += groupOfThreeDice.Value;
+            
             if (groupOfThreeDice.Key == 1)
             {
                 return 1000; 
@@ -141,6 +150,7 @@ namespace Kata.Greed.Simple
             KeyValuePair<int, int> groupOfFour = DiceGroupsToScore.FirstOrDefault(g => g.Value == 4);
             if (groupOfFour.Value > 0)
             {
+                DiceGroupsScored[groupOfFour.Key] += groupOfFour.Value;
                 return 1000;
             }
             return 0;
