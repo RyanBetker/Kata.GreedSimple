@@ -9,97 +9,10 @@ namespace Kata.Greed.Simple.Tests
     public class ScoreRollTest
     {
         [TestMethod]
-        public void ScoreFullStraightIs1500()
-        {
-            var straightRoll = new int[] { 1, 3, 2, 4, 5, 6 };
-            var score = Kata.Greed.Simple.Program.ScoreRoll(straightRoll);
-
-            Assert.AreEqual(1500, score);
-        }
-
-        [TestMethod]
-        public void ScoreSixOfAny3000()
-        {
-            for (int i = 1; i < 7; i++)
-            {
-                var rollWithAllTheSameDie = Enumerable.Repeat(i, 6).ToArray();
-
-                var score = Kata.Greed.Simple.Program.ScoreRoll(rollWithAllTheSameDie);
-
-                Assert.AreEqual(3000, score, "Die {0} has a score difference", i);
-            }
-        }
-
-        [TestMethod]
-        public void ScoreTwoTripletsIs2500()
-        {
-            var rollWithTwoTriplets = new int[] { 2, 3, 3, 2, 2, 3 };
-
-            var score = Program.ScoreRoll(rollWithTwoTriplets);
-
-            Assert.AreEqual(2500, score);
-        }
-
-        [TestMethod]
-        public void ScoreFourOfAnyWithAPairIs1500()
-        {
-            for (int i = 1; i < 7; i++)
-            {
-                //Combine these two rolls
-                var fourDice = Enumerable.Repeat(i, 4);
-                var pairDifferentThanTheFour = Enumerable.Repeat(GetDieNumberNotIn(i), 2);
-
-                var rollWithFourOfAnyWithAPair = fourDice.Concat(pairDifferentThanTheFour).ToArray();
-
-                var score = Program.ScoreRoll(rollWithFourOfAnyWithAPair);
-
-                var rollAsText = String.Join(",", rollWithFourOfAnyWithAPair);
-                Trace.WriteLine(rollAsText);
-                Assert.AreEqual(1500, score, "Roll used: {0}", rollAsText);
-            }
-        }
-
-        [TestMethod]
-        public void GetDieNumberNotIn()
-        {
-            for (int i = 1; i < 7; i++)
-            {
-                var dieNotTheSame = GetDieNumberNotIn(i);
-
-                Assert.AreNotEqual(i, dieNotTheSame);
-            }
-        }
-
-        public int GetDieNumberNotIn(int die)
-        {
-            //could do random route, but that would make tests inconsistent
-
-            if (die == 6)//special case for 6, as we don't want 5 to up the scoring, plus there's nothing higher
-            {
-                return 4;
-            }
-            else
-            {                
-                //don't get ONEs because it would bump up the scoring, like 5's would                
-                var allOtherNumbers = Enumerable.Range(2, 3).Where(d => d != die);
-                return allOtherNumbers.Max();
-            }
-        }
-
-        [TestMethod]
-        public void ScoreThreePairs()
-        {
-            var rollWithThreePairs = new int[] { 1, 3, 4, 3, 4, 1 };
-
-            var score = Program.ScoreRoll(rollWithThreePairs);
-
-            Assert.AreEqual(1500, score);
-        }
-
-        [TestMethod]
+        [Ignore]
         public void ScoreFiveOfAnyIs2000()
         {
-            var rollWithFiveOfAny = new int[] { 1, 1, 1, 3, 1, 1 };
+            var rollWithFiveOfAny = new int[] { 1, 1, 1, 1, 1 };
             var diceRolled = rollWithFiveOfAny;
             
             var score = Program.ScoreRoll(rollWithFiveOfAny);
@@ -107,12 +20,90 @@ namespace Kata.Greed.Simple.Tests
             Assert.AreEqual(2000, score);
         }
         [TestMethod]
+        [Ignore]
         public void ScoreFourOfAnyIs1000()
         {
-            var rollWithFourOfAny = new int[] { 1, 1, 3, 3, 1, 1 };
+            var rollWithFourOfAny = new int[] { 1, 1, 2, 1, 1 };
             var score = Program.ScoreRoll(rollWithFourOfAny);
 
             Assert.AreEqual(1000, score);
+        }
+
+        [TestMethod]
+        public void ScoreThreeOfOnesIs1000()
+        {            
+            var rollWithFourOfAny = new int[] { 1, 1, 2, 1, 4, 6};
+            var score = Program.ScoreRoll(rollWithFourOfAny);
+
+            Assert.AreEqual(1000, score);
+        }
+        [TestMethod]
+        public void ScoreThreeOTwoIs200()
+        {
+            var rollWithThreeOfAny = new int[] { 2, 2, 3, 4, 2};
+            var score = Program.ScoreRoll(rollWithThreeOfAny);
+                
+            Assert.AreEqual(200, score);
+        }
+        [TestMethod]
+        public void ScoreThreeOSixIs600()
+        {
+            var rollWithThreeOfAny = new int[] { 6, 6, 3, 4, 6 };
+            var score = Program.ScoreRoll(rollWithThreeOfAny);
+
+            Assert.AreEqual(600, score);
+        }
+
+        [TestMethod]
+        public void ScoreOneIs100()
+        {
+            var rollWithOne = new int[] { 1, 2, 4, 4, 6 };
+            var score = Program.ScoreRoll(rollWithOne);
+            
+            Assert.AreEqual(100, score);
+        }
+        [TestMethod]
+        public void ScoreTwoOnesIs200()
+        {
+            var rollWithOnes = new int[] { 1, 1, 4, 4, 6};
+            var score = Program.ScoreRoll(rollWithOnes);
+
+            Assert.AreEqual(200, score);
+        }
+
+        [TestMethod]
+        public void ScoreThreeTwosAndTwiOnesIs400()
+        {
+            var rollWithOnes = new int[] { 1, 1, 2, 2, 2};
+            var score = Program.ScoreRoll(rollWithOnes);
+
+            Assert.AreEqual(400, score);
+        }
+
+        [TestMethod]
+        public void ScoreOneFiveIs50()
+        {
+            var roll = new int[] { 5, 3, 4, 2, 2 };
+            var score = Program.ScoreRoll(roll);
+
+            Assert.AreEqual(50, score);
+        }
+
+        [TestMethod]
+        public void ScoreTwoFivesIs100()
+        {
+            var roll = new int[] { 5, 5, 4, 2, 2};
+            var score = Program.ScoreRoll(roll);
+
+            Assert.AreEqual(100, score);            
+        }
+        [TestMethod]
+        public void ScoreThreeFivesAnd2OnesIs700()
+        {
+            var roll = new int[] { 5, 5, 1, 1, 5};
+            var score = Program.ScoreRoll(roll);
+
+            Assert.AreEqual(700, score);
         }
     }
 }
